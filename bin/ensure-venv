@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #####
 # This script creates a virtualenv and installs the required dependencies
 #####
