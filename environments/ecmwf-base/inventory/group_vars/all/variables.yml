@@ -4,7 +4,7 @@
 
 # The size in GB for the data volume
 # This will hold all cluster data, including Kubernetes resources, and also PVC data
-infra_data_volume_size: 50
+infra_data_volume_size: 100
 
 #####
 # Configuration for the HA cluster
@@ -180,3 +180,6 @@ velero_backup_schedule_timings: "0 0 * * *"
 # Time-to-live for existing backups (defaults to 1 week)
 # See https://pkg.go.dev/time#ParseDuration for duration format options
 velero_backup_schedule_ttl: "168h"
+
+# Double size of Prometheus volume
+capi_cluster_addons_monitoring_prometheus_volume_size: 20Gi
