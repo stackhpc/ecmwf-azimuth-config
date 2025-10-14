@@ -57,6 +57,11 @@ capi_cluster_etcd_blockdevice_volume_type: "faf12dcf-2b93-4e04-9de1-57ec3f0cd58a
 # Default volume type for the etcd block device if 'Volume' type is used
 azimuth_capi_operator_capi_helm_etcd_blockdevice_volume_type: "faf12dcf-2b93-4e04-9de1-57ec3f0cd58a" # __DEFAULT__ 
 
+# The name of the flavor to use for control plane nodes
+capi_cluster_control_plane_flavor: 8cpu-8gbmem-30gbdisk
+# The name of the flavor to use for worker nodes
+capi_cluster_worker_flavor: 8cpu-16gbmem-30gbdisk-unpinned
+
 #####
 # Ingress configuration
 #####
