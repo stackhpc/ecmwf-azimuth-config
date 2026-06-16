@@ -17,6 +17,32 @@ if sys.version_info[0] < $PY_MAJOR or sys.version_info[1] < $PY_MINOR:
 EOF
 }
 
+python_version() {
+cat << 'EOF' | "$1" -
+import sys
+print(f"{sys.version_info[0]}.{sys.version_info[1]}")
+EOF
+}
+
+pip_check() {
+  "$1" -m pip --version >/dev/null 2>&1
+}
+
+bootstrap_pip() {
+  local python="$1"
+  local python_version_string
+
+  echo "Bootstrapping pip in virtual environment"
+  if "$python" -m ensurepip --upgrade; then
+    return 0
+  fi
+
+  python_version_string="$(python_version "$python")"
+  echo "Failed to install pip into the virtual environment." 1>&2
+  echo "On Ubuntu/Debian, install the venv package for this interpreter, e.g. sudo apt install python${python_version_string}-venv (or python3-venv for the default system Python)." 1>&2
+  return 1
+}
+
 find_python() {
   local candidate
 
@@ -64,6 +90,10 @@ fi
 if [ ! -d "$AZIMUTH_VENV" ]; then
   echo "Creating virtual environment at $AZIMUTH_VENV"
   "$AZIMUTH_PYTHON" -m venv "$AZIMUTH_VENV"
+fi
+
+if ! pip_check "$AZIMUTH_VENV_PYTHON"; then
+  bootstrap_pip "$AZIMUTH_VENV_PYTHON"
 fi
 
 echo "Upgrading pip"

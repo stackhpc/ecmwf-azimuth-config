@@ -24,6 +24,10 @@ Python or select one explicitly when creating the venv:
 AZIMUTH_PYTHON=python3.10 ./bin/ensure-venv
 ```
 
+On Ubuntu/Debian, make sure the `venv` package for the selected interpreter is
+installed (for example `python3-venv` or `python3.10-venv`) so that the virtual
+environment can bootstrap `pip`.
+
 If it exists, this virtual environment will be activated as part of the environment
 activation (see below).
 
