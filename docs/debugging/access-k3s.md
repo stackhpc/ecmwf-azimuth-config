@@ -20,6 +20,7 @@ execute an SSH command to access the provisioned node.
 
     ```sh
     # Ensure that the Python venv is set up
+    # Set AZIMUTH_PYTHON if python3 on the host is older than 3.10
     ./bin/ensure-venv
 
     # Activate the target environment

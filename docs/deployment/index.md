@@ -16,6 +16,14 @@ environment in the configuration directory and install the required dependencies
 ./bin/ensure-venv
 ```
 
+Azimuth currently requires Python 3.10 or newer for this virtual environment.
+If `python3` on your host points to an older interpreter, either install a newer
+Python or select one explicitly when creating the venv:
+
+```sh
+AZIMUTH_PYTHON=python3.10 ./bin/ensure-venv
+```
+
 If it exists, this virtual environment will be activated as part of the environment
 activation (see below).
 

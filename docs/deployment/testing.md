@@ -158,8 +158,8 @@ run from. The easiest way to do this is using the
 can be used to install them into any Python environment:
 
 ```sh
-pip install -U pip
-pip install -r requirements.txt
+python3.10 -m pip install -U pip
+python3.10 -m pip install -r requirements.txt
 ```
 
 The integration test suite can then be generated and executed for the environment.
